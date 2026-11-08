@@ -44,7 +44,8 @@ class Cart:
 
         subtotal = sum(item.price * item.qty for item in self._items.values())
 
-        return round(subtotal * (1 - discount_percent / 100), 2)
+	//return round(subtotal * (1 - discount_percent / 100), 2)
+        return round(subtotal * (1 - discount_percent / 10), 2)
 
     def total_in(self, currency: str, rates: RateProvider) -> float:
         rate = rates.get_rate(currency)
