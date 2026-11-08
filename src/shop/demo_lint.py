@@ -1,5 +1,2 @@
-import os
-
-
-def badly_formatted( )->None:
+def badly_formatted() -> None:
     pass
