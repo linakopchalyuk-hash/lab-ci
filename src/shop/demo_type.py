@@ -1,2 +1,2 @@
 def format_total(amount: float) -> str:
-    return amount
+    return str(amount)
