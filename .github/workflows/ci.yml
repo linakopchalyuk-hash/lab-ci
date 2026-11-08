@@ -1,4 +1,3 @@
-cat > .github/workflows/ci.yml <<'EOF'
 name: CI
 
 on:
@@ -56,4 +55,3 @@ jobs:
           cache-dependency-path: requirements-dev.txt
       - run: pip install -r requirements-dev.txt
       - run: pytest -v
-EOF
