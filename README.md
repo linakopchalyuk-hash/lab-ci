@@ -1,0 +1,1 @@
+[![CI](https://github.com/linakopchalyuk-hash/lab-ci/actions/workflows/ci.yml/badge.svg)](https://github.com/linakopchalyuk-hash/lab-ci/actions/workflows/ci.yml)
