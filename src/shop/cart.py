@@ -1,4 +1,3 @@
-
 from dataclasses import dataclass
 from typing import Protocol
 
@@ -6,8 +5,7 @@ from typing import Protocol
 class RateProvider(Protocol):
     """Джерело курсів валют."""
 
-    def get_rate(self, currency: str) -> float:
-        ...
+    def get_rate(self, currency: str) -> float: ...
 
 
 @dataclass
@@ -44,14 +42,21 @@ class Cart:
         if not 0 <= discount_percent <= 100:
             raise ValueError("discount_percent must be in [0, 100]")
 
-        subtotal = sum(
-            item.price * item.qty for item in self._items.values()
-        )
+        subtotal = sum(item.price * item.qty for item in self._items.values())
+
         return round(subtotal * (1 - discount_percent / 100), 2)
 
     def total_in(self, currency: str, rates: RateProvider) -> float:
         rate = rates.get_rate(currency)
+
         if rate <= 0:
             raise ValueError("rate must be positive")
+
         return round(self.total() / rate, 2)
 
+    def most_expensive(self) -> Item | None:
+        return max(
+            self._items.values(),
+            key=lambda item: item.price,
+            default=None,
+        )
